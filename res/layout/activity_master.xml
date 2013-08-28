@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" 
+    tools:context=".MasterActivity">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/navigation_bar_background"
+        android:orientation="horizontal" >
+
+        <ImageButton
+            android:id="@+id/profile_button"
+            android:layout_width="100dp"
+            android:layout_height="fill_parent"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/profile_button" />
+
+        <ImageButton
+            android:id="@+id/camera_button"
+            android:layout_width="100dp"
+            android:layout_height="fill_parent"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/camera_button_selected" />
+    </RelativeLayout>
+
+    <FrameLayout
+       
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+         >
+
+        <fragment
+            android:id="@+id/map"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            class="com.google.android.gms.maps.MapFragment"
+            android:scrollbars="vertical" />
+
+        <LinearLayout
+            android:id="@+id/transparent_cover"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#80000000" />
+
+        <com.handmark.pulltorefresh.library.PullToRefreshListView
+            xmlns:ptr="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/pull_refresh_list"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginBottom="60dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/listview_shape"
+            android:cacheColorHint="#00000000"
+            android:fadingEdge="none"
+            android:fastScrollEnabled="false"
+            android:footerDividersEnabled="false"
+            android:headerDividersEnabled="false"
+            android:smoothScrollbar="true"
+            ptr:ptrAnimationStyle="flip"
+            ptr:ptrHeaderBackground="#00000000" />
+
+        <ToggleButton
+            android:id="@+id/toggle_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/toggle_button_background"
+            android:checked="false"
+            android:textOff=""
+            android:textOn="" />
+    </FrameLayout>
+
+</LinearLayout>

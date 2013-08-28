@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="menu_settings">SnapSomething</string>
+<string name="app_name">SnapSomething</string>
+ <string name="action_settings">Settings</string>
+ <string name="hello_world">Hello world!</string>
+ <string name="signin">Sign In</string>
+ <string name="signup">Sign Up For SnapStack</string>
+ <string name="forgot_password">Forgot Your Password?</string>
+ <string name="username_hint">Enter your username</string>
+ <string name="password_hint">Enter your password</string>
+ <string name="email_hint">Enter your email address</string>
+ <string name="join">Join SnapStack</string>
+ <string name="choose_photo">Make profile picture</string>
+ <string name="contentDescriptionChoosePhoto">Choose your profile picture</string>
+ <string name="toggle_turn_on">Show Map</string>
+ <string name="toggle_turn_off">Show List</string>
+ <string name="contentDescriptionProfileImage">This is the profile picture</string>
+ <string name="contentDescriptionImageView">This is an image</string>
+ <string name="share_photo">Share Photo</string>
+ <string name="comments">Comments</string>
+ <string name="signout">Sign Out</string>
+ <string name="delete">Delete</string>
+ <string name="comment_hint">Type your comment here</string>
+ <string name="share_comment">Share Comment</string>
+ <string name="comment">Comment</string>
+ <string name="forgot_password_button">Email a temporary password</string>
+ <string name="forgot_password_textview">Enter your username, and we\’ll email you a temporary 
+password.</string>
+ <string name="change_password_hint">Enter temporary password</string>
+</resources>
