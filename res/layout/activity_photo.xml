@@ -14,4 +14,20 @@
         android:layout_centerInParent="true"
          />
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignLeft="@+id/photo_image"
+	    android:layout_alignTop="@+id/photo_image"
+	    android:layout_alignRight="@+id/photo_image"
+	    android:layout_alignBottom="@+id/photo_image"
+	    android:layout_margin="1dp"
+    	android:layout_gravity="bottom|center_horizontal"
+        android:text="ANGRY"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#DDDDDD"
+        android:background="#222222" />
+
 </RelativeLayout>

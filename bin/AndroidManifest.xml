@@ -1,92 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
- package="com.example.snapsomething"
- android:versionCode="1"
- android:versionName="1.0" >
- <uses-feature
- android:glEsVersion="0x00020000"
- android:required="true" />
- <permission
- android:name="com.example.snapsomething.permission.MAPS_RECEIVE"
- android:protectionLevel="signature" />
- <uses-permission android:name="com.example.snapsomething.permission.MAPS_RECEIVE" />
- <uses-permission android:name="android.permission.INTERNET" />
- <uses-permission android:name="android.permission.CAMERA" />
- <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
- <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
- <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
- <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
- <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
- <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
- <uses-feature
- android:name="android.hardware.camera"
- android:required="true" />
- <uses-sdk
- android:minSdkVersion="14"
- android:targetSdkVersion="17" />
- <application
- android:name=".SnapSomethingApplication"
- android:allowBackup="true"
- android:icon="@drawable/app_icon"
- android:label="@string/app_name"
- android:theme="@style/AppTheme" >
- <meta-data
- android:name="com.google.android.maps.v2.API_KEY"
- android:value="YOUR_API_KEY" />
- <activity
- android:name="com.example.snapsomething.MainActivity"
- android:screenOrientation="portrait" >
- <intent-filter>
- <action android:name="android.intent.action.MAIN" />
- <category android:name="android.intent.category.LAUNCHER" />
- </intent-filter>
- </activity>
- <activity
- android:name=".SignUpActivity"
- android:screenOrientation="portrait" >
- </activity>
- <activity
- android:name=".SignInActivity"
- android:screenOrientation="portrait" >
- </activity>
- <activity android:name=".ChoosePhotoActivity"
- android:screenOrientation="portrait" >
- </activity>
- <activity
- android:name=".MasterActivity"
- android:screenOrientation="portrait" >
- </activity>
- <activity
- android:name=".ProfileActivity"
- android:screenOrientation="portrait" >
- </activity>
- <activity
- android:name=".SharePhotoActivity"
- android:screenOrientation="portrait" >
- </activity>
- <activity
- android:name=".DetailViewActivity"
- android:screenOrientation="portrait" >
- </activity>
- <activity
- android:name=".PhotoViewActivity"
- android:screenOrientation="portrait" >
- </activity>
- <activity
- android:name=".CommentViewActivity"
- android:screenOrientation="portrait">
- </activity>
- <activity
- android:name=".ShareCommentActivity"
- android:screenOrientation="portrait" >
- </activity>
- <activity
- android:name=".ForgotPasswordActivity"
- android:screenOrientation="portrait" >
- </activity>
- <activity
- android:name=".ChangePasswordActivity"
- android:screenOrientation="portrait" >
- </activity>
- </application>
+    package="com.example.snapsomething"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
+    <permission
+        android:name="com.example.snapsomething.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.example.snapsomething.permission.MAPS_RECEIVE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="17" />
+
+    <application
+        android:name="com.example.snapsomething.SnapSomethingApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/app_icon"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="YOUR_API_KEY" />
+
+        <activity
+            android:name="com.example.snapsomething.MainActivity"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.snapsomething.SignUpActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.example.snapsomething.SignInActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.example.snapsomething.ChoosePhotoActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.example.snapsomething.MasterActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.example.snapsomething.ProfileActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.example.snapsomething.SharePhotoActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.example.snapsomething.DetailViewActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.example.snapsomething.PhotoViewActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.example.snapsomething.CommentViewActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.example.snapsomething.ShareCommentActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.example.snapsomething.ForgotPasswordActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.example.snapsomething.ChangePasswordActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.example.snapsomething.ChooseUserActivity"
+            android:label="@string/title_activity_choose_user" >
+        </activity>
+    </application>
+
 </manifest>

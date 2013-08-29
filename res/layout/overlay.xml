@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	 android:orientation="vertical"
+	 android:layout_width="fill_parent"
+	 android:layout_height="fill_parent"
+	 android:gravity="bottom">
+      <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+	    android:layout_margin="1dp"
+        android:text="ANGRY"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#DDDDDD"
+        android:background="#222222" />
+	    
+	    
+	    <ImageView
+	        android:id="@+id/take_photo"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="center_horizontal"
+	        android:src="@drawable/app_icon" />
+	    
+	    <ToggleButton 
+	    android:id="@+id/flip_camera"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:textOn="Flip camera"
+	    android:textOff="Flip camera"/>
+ 
+	</LinearLayout>

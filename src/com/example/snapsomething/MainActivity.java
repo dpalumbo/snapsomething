@@ -26,10 +26,6 @@ public class MainActivity extends Activity {
 				"3d22a61d-a343-43f1-8051-a9b59a97b699");
 		StackMob.getStackMob().getSession().getLogger().setLogging(true);
 		snapStackApplication = (SnapSomethingApplication) getApplication();
-		GPSTracker gps = new GPSTracker(this);
-		if (!gps.canGetLocation()) {
-			gps.showSettingsAlert();
-		}
 		// Find our buttons
 		sign_up = (Button) findViewById(R.id.signup_button);
 		sign_in = (Button) findViewById(R.id.signin_button);

@@ -79,38 +79,13 @@ public class MasterActivity extends Activity {
 					requestCode);
 			dialog.show();
 		}
-		profile_button = (ImageButton) findViewById(R.id.profile_button);
-		profile_button.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				Intent intent = new Intent(MasterActivity.this,
-						ProfileActivity.class);
-				startActivity(intent);
-			}
-		});
-		map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map))
-				.getMap();
-		map.setMyLocationEnabled(true);
-		map.getUiSettings().setAllGesturesEnabled(false);
+
 		camera_button = (ImageButton) findViewById(R.id.camera_button);
 		camera_button.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				if (gps.getLocation() == null) {
-					Builder builder = new AlertDialog.Builder(
-							MasterActivity.this);
-					builder.setTitle("Oh snap!");
-					builder.setCancelable(true);
-					builder.setMessage("Couldn't get your location.");
-					AlertDialog dialog = builder.create();
-					dialog.show();
-					return;
-				}
-				Location location = gps.getLocation();
-				StackMobGeoPoint point = new StackMobGeoPoint(location
-						.getLongitude(), location.getLatitude());
 				User user = snapStackApplication.getUser();
-				Snap snap = new Snap(user, point);
+				Snap snap = new Snap(user, null);
 				snapStackApplication.setSnap(snap);
 				Intent intent = new Intent(MasterActivity.this,
 						SharePhotoActivity.class);
@@ -140,92 +115,8 @@ public class MasterActivity extends Activity {
 				startActivityForResult(intent, 0);
 			}
 		});
-		toggle_button = (ToggleButton) findViewById(R.id.toggle_button);
-		toggle_button
-				.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-					@Override
-					public void onCheckedChanged(CompoundButton buttonView,
-							boolean isChecked) {
-						// Save the state here
-						if (isChecked) {
-							Animation fadeOut = new AlphaAnimation(1, 0);
-							fadeOut.setInterpolator(new AccelerateInterpolator()); // and
-																					// this
-							fadeOut.setDuration(500);
-							transparent_cover.setAnimation(fadeOut);
-							pull_refresh_list.setAnimation(fadeOut);
-							transparent_cover.setVisibility(View.GONE);
-							pull_refresh_list.setVisibility(View.GONE);
-							map.getUiSettings().setAllGesturesEnabled(true);
-						} else {
-							transparent_cover.setVisibility(View.VISIBLE);
-							pull_refresh_list.setVisibility(View.VISIBLE);
-							Animation fadeIn = new AlphaAnimation(0, 1);
-							fadeIn.setInterpolator(new DecelerateInterpolator());
-							fadeIn.setDuration(500);
-							transparent_cover.setAnimation(fadeIn);
-							pull_refresh_list.setAnimation(fadeIn);
-							map.getUiSettings().setAllGesturesEnabled(false);
-						}
-					}
-				});
-		map.setOnMarkerClickListener(new OnMarkerClickListener() {
-			@Override
-			public boolean onMarkerClick(final Marker marker) {
-				AlertDialog.Builder builder = new AlertDialog.Builder(
-						MasterActivity.this);
-				LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-				View v = inflater.inflate(R.layout.activity_photo, null);
-				builder.setView(v);
-				int i = Integer.parseInt(marker.getSnippet());
-				Snap snap = snaps.get(i);
-				ImageView imageView = (ImageView) v
-						.findViewById(R.id.photo_image);
-				DisplayImageOptions options = new DisplayImageOptions.Builder()
-						.showStubImage(R.drawable.placeholder)
-						.showImageForEmptyUri(R.drawable.placeholder)
-						.showImageOnFail(R.drawable.placeholder)
-						.cacheInMemory().cacheOnDisc()
-						.bitmapConfig(Bitmap.Config.RGB_565).build();
-				ImageLoader imageLoader = ImageLoader.getInstance();
-				imageLoader.displayImage(snap.getPhoto().getS3Url(), imageView,
-						options);
-				imageView.setAdjustViewBounds(true);
-				imageView.setMaxHeight(150);
-				imageView.setMaxWidth(150);
-				imageView.setOnClickListener(new View.OnClickListener() {
-					public void onClick(View v) {
-						int i = Integer.parseInt(marker.getSnippet());
-						Snap snap = snaps.get(i);
-						Intent intent = new Intent(MasterActivity.this,
-								DetailViewActivity.class);
-						snapStackApplication.setSnap(snap);
-						startActivity(intent);
-					}
-				});
-				builder.setPositiveButton("Show Details",
-						new DialogInterface.OnClickListener() {
-							@Override
-							public void onClick(DialogInterface dialog, int id) {
-								int i = Integer.parseInt(marker.getSnippet());
-								Snap snap = snaps.get(i);
-								Intent intent = new Intent(MasterActivity.this,
-										DetailViewActivity.class);
-								snapStackApplication.setSnap(snap);
-								startActivity(intent);
-							}
-						});
-				builder.setNegativeButton("Close",
-						new DialogInterface.OnClickListener() {
-							public void onClick(DialogInterface dialog, int id) {
-								dialog.cancel();
-							}
-						});
-				Dialog dialog = builder.create();
-				dialog.show();
-				return true;
-			}
-		});
+		
+		//Todo: load ongoing games
 		loadObjects();
 	}
 
@@ -270,37 +161,7 @@ public class MasterActivity extends Activity {
 	}
 
 	private void loadObjects() {
-		Location location = gps.getLocation();
-		if (location == null) {
-			pull_refresh_list.onRefreshComplete();
-			Toast.makeText(this, "Couldn't get your location",
-					Toast.LENGTH_LONG).show();
-			return;
-		}
-		LatLng currentLocation = new LatLng(location.getLatitude(),
-				location.getLongitude());
-		// Move the camera instantly to the current location with a zoom of 15.
-		map.animateCamera(CameraUpdateFactory
-				.newLatLngZoom(currentLocation, 15));
-		StackMobGeoPoint point = new StackMobGeoPoint(location.getLongitude(),
-				location.getLatitude());
-		StackMobQuery query = new StackMobQuery();
-		query.fieldIsNear("location", point);
-		query.fieldIsOrderedBy("createddate", StackMobQuery.Ordering.DESCENDING);
-		query.isInRange(0, 50);
-		Snap.query(Snap.class, query, StackMobOptions.depthOf(1),
-				new StackMobQueryCallback<Snap>() {
-					@Override
-					public void success(List<Snap> result) {
-						snaps = result;
-						handler.post(new ListUpdater());
-					}
 
-					@Override
-					public void failure(StackMobException e) {
-						handler.post(new ListUpdater());
-					}
-				});
 	}
 
 	@Override

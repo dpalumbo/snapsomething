@@ -285,6 +285,14 @@ containing a value of this type.
         public static final int common_signin_btn_text_light=0x7f05000b;
     }
     public static final class dimen {
+        /**  Default screen margins, per the Android Design guidelines. 
+
+         Customize dimensions originally defined in res/values/dimens.xml (such as
+         screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
+    
+         */
+        public static final int activity_horizontal_margin=0x7f080005;
+        public static final int activity_vertical_margin=0x7f080006;
         public static final int header_footer_left_right_padding=0x7f080003;
         public static final int header_footer_top_bottom_padding=0x7f080004;
         public static final int indicator_corner_radius=0x7f080001;
@@ -334,94 +342,99 @@ containing a value of this type.
         public static final int toggle_button_background=0x7f020027;
     }
     public static final class id {
+        public static final int action_settings=0x7f06003d;
         public static final int both=0x7f060008;
         public static final int camera_button=0x7f06001f;
+        public static final int cameraview=0x7f060028;
         public static final int choose_photo_button=0x7f060016;
         public static final int choose_photo_imageview=0x7f060015;
-        public static final int comment_edittext=0x7f060027;
-        public static final int comment_item_profile_image=0x7f060030;
-        public static final int comment_listview=0x7f060017;
-        public static final int comment_text=0x7f060032;
-        public static final int comment_username=0x7f060031;
-        public static final int delete=0x7f06003c;
-        public static final int detail_comments=0x7f06001b;
-        public static final int detail_image=0x7f06001a;
-        public static final int detail_profile_image=0x7f060018;
-        public static final int detail_username=0x7f060019;
+        public static final int choose_user=0x7f060017;
+        public static final int comment_edittext=0x7f060026;
+        public static final int comment_item_profile_image=0x7f06002f;
+        public static final int comment_listview=0x7f060018;
+        public static final int comment_text=0x7f060031;
+        public static final int comment_username=0x7f060030;
+        public static final int delete=0x7f06003e;
+        public static final int detail_comments=0x7f06001c;
+        public static final int detail_image=0x7f06001b;
+        public static final int detail_profile_image=0x7f060019;
+        public static final int detail_username=0x7f06001a;
         public static final int disabled=0x7f060005;
-        public static final int email_edittext=0x7f06002c;
-        public static final int fl_inner=0x7f060036;
+        public static final int email_edittext=0x7f06002b;
+        public static final int fl_inner=0x7f060037;
         public static final int flip=0x7f06000d;
-        public static final int forgot_password=0x7f06002b;
-        public static final int forgot_password_button=0x7f06001c;
+        public static final int flip_camera=0x7f060036;
+        public static final int forgot_password=0x7f06002a;
+        public static final int forgot_password_button=0x7f06001d;
         public static final int gridview=0x7f06000e;
         public static final int hybrid=0x7f060004;
-        public static final int iv_icon=0x7f06002e;
-        public static final int join_button=0x7f06002d;
+        public static final int iv_icon=0x7f06002d;
+        public static final int join_button=0x7f06002c;
         public static final int manualOnly=0x7f060009;
-        public static final int map=0x7f060020;
-        public static final int menu_settings=0x7f06003b;
+        public static final int menu_settings=0x7f06003c;
         public static final int none=0x7f060000;
         public static final int normal=0x7f060001;
         public static final int password_edittext=0x7f060013;
-        public static final int photo_image=0x7f060024;
-        public static final int profile_button=0x7f06001e;
-        public static final int profile_photo_imageview=0x7f060025;
-        public static final int profile_username=0x7f060026;
+        public static final int photo_image=0x7f060022;
+        public static final int profile_photo_imageview=0x7f060024;
+        public static final int profile_username=0x7f060025;
         public static final int pullDownFromTop=0x7f06000a;
         public static final int pullFromEnd=0x7f060007;
         public static final int pullFromStart=0x7f060006;
         public static final int pullUpFromBottom=0x7f06000b;
-        public static final int pull_refresh_list=0x7f060022;
-        public static final int pull_to_refresh_image=0x7f060037;
-        public static final int pull_to_refresh_progress=0x7f060038;
-        public static final int pull_to_refresh_sub_text=0x7f06003a;
-        public static final int pull_to_refresh_text=0x7f060039;
+        public static final int pull_refresh_list=0x7f060021;
+        public static final int pull_to_refresh_image=0x7f060038;
+        public static final int pull_to_refresh_progress=0x7f060039;
+        public static final int pull_to_refresh_sub_text=0x7f06003b;
+        public static final int pull_to_refresh_text=0x7f06003a;
         public static final int rotate=0x7f06000c;
         public static final int satellite=0x7f060002;
         public static final int scrollview=0x7f060010;
-        public static final int share_comment_button=0x7f060028;
-        public static final int share_photo_button=0x7f06002a;
+        public static final int share_comment_button=0x7f060027;
         public static final int share_photo_imageview=0x7f060029;
-        public static final int signOut=0x7f06003d;
+        public static final int signOut=0x7f06003f;
         public static final int signin_button=0x7f060014;
-        public static final int signup_button=0x7f06001d;
-        public static final int snap_item_image=0x7f060035;
-        public static final int snap_item_profile_image=0x7f060033;
-        public static final int snap_item_username=0x7f060034;
+        public static final int signup_button=0x7f06001e;
+        public static final int snap_item_image=0x7f060034;
+        public static final int snap_item_profile_image=0x7f060032;
+        public static final int snap_item_username=0x7f060033;
+        public static final int take_photo=0x7f060035;
         public static final int temporary_password_edittext=0x7f060012;
         public static final int terrain=0x7f060003;
-        public static final int toggle_button=0x7f060023;
-        public static final int transparent_cover=0x7f060021;
-        public static final int tv_name=0x7f06002f;
+        public static final int textView2=0x7f060023;
+        public static final int transparent_cover=0x7f060020;
+        public static final int tv_name=0x7f06002e;
         public static final int username_edittext=0x7f060011;
         public static final int webview=0x7f06000f;
     }
     public static final class layout {
         public static final int activity_change_password=0x7f030000;
         public static final int activity_choose_photo=0x7f030001;
-        public static final int activity_comment=0x7f030002;
-        public static final int activity_detail=0x7f030003;
-        public static final int activity_forgot_password=0x7f030004;
-        public static final int activity_main=0x7f030005;
-        public static final int activity_master=0x7f030006;
-        public static final int activity_photo=0x7f030007;
-        public static final int activity_profile=0x7f030008;
-        public static final int activity_share_comment=0x7f030009;
-        public static final int activity_share_photo=0x7f03000a;
-        public static final int activity_signin=0x7f03000b;
-        public static final int activity_signup=0x7f03000c;
-        public static final int crop_selector=0x7f03000d;
-        public static final int listview_comment_item=0x7f03000e;
-        public static final int listview_snap_item=0x7f03000f;
-        public static final int pull_to_refresh_header_horizontal=0x7f030010;
-        public static final int pull_to_refresh_header_vertical=0x7f030011;
+        public static final int activity_choose_user=0x7f030002;
+        public static final int activity_comment=0x7f030003;
+        public static final int activity_detail=0x7f030004;
+        public static final int activity_forgot_password=0x7f030005;
+        public static final int activity_main=0x7f030006;
+        public static final int activity_master=0x7f030007;
+        public static final int activity_photo=0x7f030008;
+        public static final int activity_profile=0x7f030009;
+        public static final int activity_share_comment=0x7f03000a;
+        public static final int activity_share_photo=0x7f03000b;
+        public static final int activity_signin=0x7f03000c;
+        public static final int activity_signup=0x7f03000d;
+        public static final int crop_selector=0x7f03000e;
+        public static final int listview_comment_item=0x7f03000f;
+        public static final int listview_snap_item=0x7f030010;
+        public static final int overlay=0x7f030011;
+        public static final int pull_to_refresh_header_horizontal=0x7f030012;
+        public static final int pull_to_refresh_header_vertical=0x7f030013;
     }
     public static final class menu {
         public static final int activity_main=0x7f0a0000;
-        public static final int comment_menu=0x7f0a0001;
-        public static final int delete_menu=0x7f0a0002;
-        public static final int signout_menu=0x7f0a0003;
+        public static final int choose_user=0x7f0a0001;
+        public static final int comment_menu=0x7f0a0002;
+        public static final int delete_menu=0x7f0a0003;
+        public static final int signout_menu=0x7f0a0004;
     }
     public static final class string {
         public static final int action_settings=0x7f07001d;
@@ -535,6 +548,7 @@ containing a value of this type.
         public static final int signin=0x7f07001f;
         public static final int signout=0x7f07002e;
         public static final int signup=0x7f070020;
+        public static final int title_activity_choose_user=0x7f070036;
         public static final int toggle_turn_off=0x7f070029;
         public static final int toggle_turn_on=0x7f070028;
         public static final int username_hint=0x7f070022;
