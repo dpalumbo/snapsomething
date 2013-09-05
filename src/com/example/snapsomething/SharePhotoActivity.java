@@ -47,6 +47,7 @@ public class SharePhotoActivity extends Activity implements
 	SnapSomethingApplication snapStackApplication;
 	private Uri imageCaptureUri;
 	private ImageView share_photo_imageview;
+	private ImageView send_photo;
 	private Button share_photo_button;
 	private ImageView take_photo;
 	private ProgressDialog progressDialog;
@@ -86,33 +87,53 @@ public class SharePhotoActivity extends Activity implements
 		surfaceHolder.addCallback(this);
 		surfaceHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
 
+
 		inflater = LayoutInflater.from(getBaseContext());
 		View view = inflater.inflate(R.layout.overlay, null);
 		LayoutParams layoutParamsControl = new LayoutParams(
 				LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT);
 		this.addContentView(view, layoutParamsControl);
-
+		flip_camera = (ToggleButton) findViewById(R.id.flip_camera);
+		
 		take_photo = (ImageView) findViewById(R.id.take_photo);
+		send_photo = (ImageView) findViewById(R.id.send_photo);
+		send_photo.setVisibility(View.INVISIBLE);
+		
 		take_photo.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				flip_camera.setVisibility(View.INVISIBLE);
+				take_photo.setVisibility(View.INVISIBLE);
+				send_photo.setVisibility(View.VISIBLE);
+				takePicture();
+			}
+		});
+		
+		send_photo.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				User user = snapStackApplication.getUser();
 				Snap snap = new Snap(user, null);
 				snapStackApplication.setSnap(snap);
+				//NEEDED: ADD BITMAP TO INTENT TO SEND IT TO CHOOSE USER ACTIVITY
+				
 				Intent intent = new Intent(SharePhotoActivity.this,
 						ChooseUserActivity.class);
 				startActivityForResult(intent, 0);
 			}
 		});
 		
-		 flip_camera = (ToggleButton) findViewById(R.id.flip_camera);
 		 flip_camera.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 
 		        @Override
 		        public void onCheckedChanged(CompoundButton buttonView,
 		                boolean isChecked) {
-		            // TODO Auto-generated method stub
-		            restartPreview(isChecked);
+		        	if(camera!=null) {
+		              restartPreview(isChecked);
+		        	} else {
+		        		//TODO: change this to return the oncreate methods
+		        		startPreview();		        		
+		        	}
 		        }
 		    });
 		 
@@ -216,14 +237,16 @@ void restartPreview(boolean isFront) {
 
 @Override
 public void onPause() {
-    if (inPreview) {
-        camera.stopPreview();
-    }
-
-    camera.release();
-    camera = null;
-    inPreview = false;
-
+	if(camera != null) {
+	    if (inPreview) {
+	        camera.stopPreview();
+	    }
+	
+	    camera.release();
+	    camera = null;
+	    inPreview = false;
+	}
+	
     super.onPause();
 }
 
@@ -249,8 +272,12 @@ private Camera.Size getBestPreviewSize(int width, int height,
     return (result);
 }
 
-public void takePicture() {
-    camera.takePicture(null, null, new PhotoHandler(getApplicationContext()));
+public void takePicture() {  
+	//WHY IS THIS CRASHING MY PHONE
+    camera.takePicture(null, null, new PhotoHandler(this));
+    camera.stopPreview();
+    camera.release();
+    camera = null;
 }
 
 private void initPreview(int width, int height) {

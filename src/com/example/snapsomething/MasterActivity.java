@@ -51,8 +51,7 @@ import com.stackmob.sdk.exception.StackMobException;
 
 public class MasterActivity extends Activity {
 	private SnapSomethingApplication snapStackApplication;
-	private ImageButton profile_button;
-	private ImageButton camera_button;
+	ImageButton camera_button;
 	private GoogleMap map;
 	private LinearLayout transparent_cover;
 	private PullToRefreshListView pull_refresh_list;
